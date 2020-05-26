@@ -1,0 +1,38 @@
+﻿@model List<PupilModel>
+    @{
+    ViewData["Title"] = "Pupils";
+    }
+
+    <h2>Pupils</h2>
+
+    
+
+    <table class="table table-striped">
+        <tr>
+            
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Birthyear</th>
+            <th>Class</th>
+            <th>View Grades</th>
+        </tr>
+
+        @foreach (var pupils in Model)
+    {
+    <tr>
+        
+        <td>@pupils.Name</td>
+        <td>@pupils.Surname</td>
+        <td>@pupils.Birthyear</td>
+        <td>@pupils.ClassNumber</td>
+        <td><a asp-controller="Grade" asp-action="View" asp-route-pupilsName="@pupils.Name" asp-route-pupilsSurname="@pupils.Surname">View Grades</a>
+        <td>
+    </tr>
+
+    }
+
+    </table>
+
+
+    <a class="btn btn-primary" role="button" asp-area="" asp-controller="Pupil" asp-action="Add">Add Pupil</a>
+

@@ -1,0 +1,50 @@
+﻿@model List<GradeModel>
+@{
+    ViewData["Title"] = "Grades";
+}
+
+
+<h2>Pupil Grades</h2>
+@if (Model.Count == 0)
+{
+    <div>
+    "Pupil has no grades added!"
+    </div>
+}
+else
+{
+
+
+    <div>
+        Name: @Model[0].PupilsName
+    </div>
+
+    <div>
+        Surname: @Model[0].PupilsSurname
+    </div>
+
+
+    <div>
+        <table class="table table-striped">
+
+            <tr>
+                <th>Subject</th>
+                <th>Grade</th>
+                <th>Description</th>
+            </tr>
+            @foreach (var grades in Model)
+            {
+                <tr>
+                    <td>@grades.SubjectTitle</td>
+                    <td>@grades.Grade</td>
+                    <th>@grades.Description</th>
+                </tr>
+            }
+        </table>
+    </div>
+}
+    <a class="btn btn-primary" role="button" asp-controller="Pupil" asp-action="Index" asp-route-id="">Back</a>
+
+
+
+

@@ -1,0 +1,34 @@
+﻿@model List<ItemModel>
+@{
+    ViewData["Title"] = "MyCart";
+}
+
+<h2>MyCart</h2>
+
+@if (Model.Count == 0)
+{
+    <h3>Your cart is empty!</h3>
+}
+else
+{
+    <table class="table table-striped">
+        <tr>
+            <th>Item name</th>
+            <th>Item price</th>
+            <th>Quantity</th>
+            <th></th>
+        </tr>
+        @foreach (var item in Model.GroupBy(a => a.Id).Select(x => x.First()))
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Price</td>
+                <td>@item.Quantity</td>
+                <td><a asp-controller="Account" asp-action="Delete" asp-route-id="@item.Id">Dzēst</a></td>
+            </tr>
+        }
+    </table>
+
+    
+    <a class="btn btn-primary" role="button" type="submit" asp-controller="Account" asp-action="Confirm" asp-route-id="" >Confirm</a>
+}

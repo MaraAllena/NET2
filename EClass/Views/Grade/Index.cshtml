@@ -1,0 +1,35 @@
+﻿@model List<GradeModel>
+@{
+    ViewData["Title"] = "Grades";
+}
+
+<h2>Grades</h2>
+
+
+    <table class="table table-striped">
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Subject</th>
+            <th>Grade</th>
+            <th>Description</th>
+        </tr>
+
+        @foreach (var grades in Model)
+        {
+    <tr>
+        <td>@grades.PupilsName</td>
+        <td>@grades.PupilsSurname</td>
+        <td>@grades.SubjectTitle</td>
+        <td>@grades.Grade</td>
+        <td>@grades.Description</td>
+    </tr>
+
+        }
+
+    </table>
+
+<a class="btn btn-primary" role="button" asp-area="" asp-controller="Grade" asp-action="Add">Add Grade</a>
+<br />
+<br />
+<a class="btn btn-success" role="button" asp-area="" asp-controller="Grade" asp-action="Average">View Average grades</a>

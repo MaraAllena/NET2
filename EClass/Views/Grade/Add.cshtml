@@ -1,0 +1,49 @@
+﻿@model GradeModel
+@{
+    ViewData["Title"] = "Add grade";
+}
+
+<h2>Add grade</h2>
+
+@Html.ValidationSummary()
+
+
+<form class="form-horizontal" asp-controller="Grade" asp-action="Add" method="post">
+    <div class="form-group">
+        <label asp-for="PupilsName" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="PupilsName">
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="PupilsSurname" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="PupilsSurname">
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="SubjectTitle" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="SubjectTitle">
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Grade" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="Grade">
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="Description" class="col-sm-2 control-label"></label>
+        <div class="col-sm-10">
+            <input class="form-control" asp-for="Description">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+    </div>
+</form>
+
+<a class="btn btn-primary" role="button" asp-controller="Grade" asp-action="Index" asp-route-id="">Back</a>

@@ -1,0 +1,31 @@
+﻿@model List<PupilModel>
+@{
+    ViewData["Title"] = "Pupils";
+}
+
+<h2>Pupils</h2>
+
+<table class="table table-striped">
+    <tr>
+        
+        <th>Name</th>
+        <th>Surname</th>
+        <th>Average Grade</th>
+        
+    </tr>
+
+    @foreach (var pupils in Model)
+    {
+        
+        <tr>
+            
+            <td>@pupils.Name</td>
+            <td>@pupils.Surname</td>
+            <td>@pupils.AverageGrade</td>
+            
+            <td>
+        </tr>
+
+    }
+
+</table>

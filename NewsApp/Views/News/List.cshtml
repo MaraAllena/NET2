@@ -1,0 +1,25 @@
+﻿@model List<NewsModel>
+
+
+@if (Model.Count == 0)
+{
+    <h3>No news!</h3>
+}
+else
+{
+    <table class="table table-striped">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+                    </tr>
+        @foreach (var news in Model)
+        {
+            <tr>
+                <td>@news.Title</td>
+                <td>@news.Description</td>
+                
+            </tr>
+        }
+    </table>
+}
+

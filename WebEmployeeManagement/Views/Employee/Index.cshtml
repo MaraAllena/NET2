@@ -1,0 +1,43 @@
+﻿@model List<EmployeeModel>
+@{
+    ViewData["Title"] = "All employees";
+}
+
+<h2>All employees</h2>
+
+
+@if (Model.Count > 0)
+{
+    <table class="table table-striped">
+
+        <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Birthyear</th>
+            <th>Position</th>
+            <th>Division</th>
+        </tr>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.Name</td>
+                <td>@employee.Surname</td>
+                <td>@employee.Year</td>
+                <td>@employee.Position</td>
+                <td>@employee.Division</td>
+            </tr>
+
+        }
+    </table>
+}
+else
+{
+    <div> No Employees added! </div>
+}
+
+<br />
+<a class="btn btn-primary" role="button" asp-controller="Employee" asp-action="Divisions" asp-route-id="">Unique Divisions</a>
+<br />
+
+
+

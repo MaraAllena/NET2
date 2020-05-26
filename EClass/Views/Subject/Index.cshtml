@@ -1,0 +1,36 @@
+﻿@model List<SubjectModel>
+@{
+    ViewData["Title"] = "Subjects";
+}
+
+<h2>Subjcts</h2>
+
+@if (Model.Count > 0)
+{ 
+<table class="table table-striped">
+    <tr>
+
+        
+        <th>Subject</th>
+        <th>View grades</th>
+
+    </tr>
+
+    @foreach (var subjects in Model)
+    {
+<tr>
+
+    <td>@subjects.Name</td>
+    <td><a asp-controller="Grade" asp-action="View2" asp-route-subjectTitle="@subjects.Name">View Grades</a></td>
+</tr>
+
+    }
+  
+</table>
+}
+else
+{
+<div> No subjects added! </div>
+}
+<a class="btn btn-primary" role="button" asp-area="" asp-controller="Subject" asp-action="Add">Add Subject</a>
+
