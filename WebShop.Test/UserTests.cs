@@ -20,7 +20,7 @@ namespace WebShop.Test
             Assert.Equal(user.Email, mail);
 
         }
-
+        [Fact]
         public void TestGetUser()
         {
             string mail = GetRandomText();
